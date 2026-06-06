@@ -420,7 +420,7 @@ func renderAppWithChildDiscovery(
 	kubeVersion string,
 	apiVersions []string,
 ) ([]unstructured.Unstructured, []argoapplication.ArgoResource, error) {
-	allManifests, err := renderApp(ctx, repoClient, app, branchFolderByType, namespacedScopedResources, creds, repoSelector, kubeVersion, apiVersions)
+	allManifests, err := renderApp(ctx, repoClient, app, branchFolderByType, namespacedScopedResources, creds, repoSelector, kubeVersion, apiVersions, helmChartPuller{})
 	if err != nil {
 		return nil, nil, err
 	}
